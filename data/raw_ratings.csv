@@ -1,0 +1,9 @@
+raw_ratings = [
+    {"user_id": "u1", "song_id": "s101", "rating": 5},
+    {"user_id": "u2", "song_id": "s102", "rating": 12},  
+    {"user_id": "u1", "song_id": "s101", "rating": 5},   
+    {"user_id": "u3", "rating": 4},                     
+    {"user_id": "u4", "song_id": "s101", "rating": 4},   
+    {"user_id": "u1", "song_id": "s102", "rating": 2},  
+    {"user_id": "u2", "song_id": "s102", "rating": 0},   
+]
