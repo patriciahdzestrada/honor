@@ -28,7 +28,7 @@ pipeline {
 
         stage('Archive Artifact') {
             steps {
-                archiveArtifacts artifacts: 'resultado_promedios.csv', fingerprint: true
+                archiveArtifacts artifacts: 'data/resultado_promedios.csv', fingerprint: true
             }
         }
     }
