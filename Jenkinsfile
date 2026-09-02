@@ -45,7 +45,7 @@ pipeline {
         /*
         stage('Run ETL') {
             steps {
-                bat '"C:\\Users\\mauri\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" src\\etl_ratings.py'
+                bat '"C:\\Users\\mauri\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" src\\etl.py'
             }
         }
         */
