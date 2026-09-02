@@ -1,3 +1,5 @@
+from src.etl import tablas
+
 def test_tablas():
     resultado = tablas(3)
 
