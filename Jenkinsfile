@@ -4,7 +4,7 @@ pipeline {
     environment {
         DEMO_TOKEN = credentials('demo-token')
         APP_ENV = 'dev'
-        DOCKER_IMAGE = 'mi-etl_ratings'
+        DOCKER_IMAGE = 'mi-etl'
     }
 
     stages {

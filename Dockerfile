@@ -6,7 +6,7 @@ COPY requirements.txt .
 
 RUN pip install --no-cache-dir -r requirements.txt
 
-COPY src/etl_ratings.py .
+COPY src/etl.py .
 COPY data ./data
 
-CMD ["python", "etl_ratings.py"]
+CMD ["python", "etl.py"]
