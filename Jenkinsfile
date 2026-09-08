@@ -45,14 +45,14 @@ pipeline {
         /*
         stage('Run ETL') {
             steps {
-                bat '"C:\\Users\\mauri\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" src\\etl.py'
+                bat '"C:\\Users\\mauri\\AppData\\Local\\Programs\\Python\\Python313\\python.exe" src\\medical.py'
             }
         }
         */
 
         stage('Archive Artifact') {
             steps {
-                archiveArtifacts artifacts: 'data/resultado_tabla.csv', fingerprint: true
+                archiveArtifacts artifacts: 'data/edad_valida.csv', fingerprint: true
             }
         }
     }
