@@ -10,3 +10,8 @@ def adicion():
     df3=age()
     df3["valido"]="si"
     return df3
+
+def sex():
+    df4=adicion()
+    df5=df4.groupby("sex")["age"].mean()
+    return df5
