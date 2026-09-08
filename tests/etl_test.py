@@ -16,11 +16,9 @@ def test_tablas():
     df.to_csv("data/resultado_tabla.csv", index=False)
 """
 
-def test():
-    edad_valida= age()
+def test_age():
+    edad_valida = age()
     assert len(edad_valida) > 0
 
-    #Guardar Dataframe
-    df=pd.DataFrame({"edad_valida": edad_valida})
-    df.to_csv("data/edad_valida.csv", index=False) 
-    
+    # Guardar el DataFrame filtrado
+    edad_valida.to_csv("data/edad_valida.csv", index=False)

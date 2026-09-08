@@ -49,24 +49,6 @@ def get_song_average_ratings(ratings: list) -> pd.DataFrame:
     return df_promedios
 
 
-def ejecutar_etl_ratings(input_path: str, output_path: str) -> pd.DataFrame:
-    """
-    Orquestador principal del proceso ETL.
-    """
-    # 1. Extract (soporta CSV o carga directa si ya existe)
-    df_raw = pd.read_csv(input_path)
-    raw_ratings = df_raw.to_dict(orient="records")
-
-    # 2. Transform
-    cleaned = clean_raw_ratings(raw_ratings)
-    df_result = get_song_average_ratings(cleaned)
-
-    # 3. Load
-    os.makedirs(os.path.dirname(output_path), exist_ok=True)
-    df_result.to_csv(output_path, index=False)
-
-    return df_result
-
-
 if __name__ == "__main__":
-    ejecutar_etl_ratings("data/raw_ratings.csv", "data/resultado_promedios.csv")
+    clean_raw_ratings("data/raw_ratings.csv", "data/resultado_validos.csv")
+    get_song_average_ratings("data/raw_ratings.csv", "data/resultado_promedios.csv")
