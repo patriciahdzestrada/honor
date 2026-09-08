@@ -53,6 +53,7 @@ pipeline {
         stage('Archive Artifact') {
             steps {
                 archiveArtifacts artifacts: 'data/edad_valida.csv', fingerprint: true
+                archiveArtifacts artifacts: 'data/aplicables.csv', fingerprint: true
             }
         }
     }
