@@ -21,6 +21,7 @@ def test_age():
     edad_valida = age()
     aplicables=adicion()
     assert len(edad_valida) > 0
+    assert len(aplicables) > 0
 
     # Guardar el DataFrame filtrado
     edad_valida.to_csv("data/edad_valida.csv", index=False)
