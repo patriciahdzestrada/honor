@@ -52,8 +52,8 @@ pipeline {
 
         stage('Archive Artifact') {
             steps {
-                archiveArtifacts artifacts: 'data/resultado_validos.csv', fingerprint: true
-                archiveArtifacts artifacts: 'data/resultado_promedios.csv', fingerprint: true
+                archiveArtifacts artifacts: 'data/cleaned.csv', fingerprint: true
+                archiveArtifacts artifacts: 'data/average.csv', fingerprint: true
                 
             }
         }
