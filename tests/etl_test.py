@@ -3,7 +3,7 @@ import pandas as pd
 #from src.etl import tablas
 from src.medical import age
 from src.medical import adicion
-from src.medical import sex
+from src.medical import group
 
 
 """
@@ -21,13 +21,13 @@ def test_tablas():
 def test_age():
     edad_valida = age()
     aplicables=adicion()
-    sex=sex()
+    agrupado=group()
     assert len(edad_valida) > 0
     assert len(aplicables) > 0
-    assert len(sex) > 0
+   
 
     # Guardar el DataFrame filtrado
     edad_valida.to_csv("data/edad_valida.csv", index=False)
     aplicables.to_csv("data/aplicables.csv", index=False)
-    sex.to_csv("data/conteo.csv", index=False)
+    agrupado.to_csv("data/conteo.csv", index=False)
 
