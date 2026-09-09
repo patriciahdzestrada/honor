@@ -52,9 +52,9 @@ pipeline {
 
         stage('Archive Artifact') {
             steps {
-                archiveArtifacts artifacts: 'data/edad_valida.csv', fingerprint: true
-                archiveArtifacts artifacts: 'data/aplicables.csv', fingerprint: true
-                archiveArtifacts artifacts: 'data/conteo.csv', fingerprint: true
+                archiveArtifacts artifacts: 'data/resultado_validos.csv', fingerprint: true
+                archiveArtifacts artifacts: 'data/resultado_promedios.csv', fingerprint: true
+                
             }
         }
     }

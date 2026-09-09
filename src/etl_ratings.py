@@ -1,20 +1,23 @@
-import os
 import pandas as pd
 
 
 def clean_raw_ratings(raw_ratings: list) -> list:
     """
     Filtra registros incompletos, ratings fuera de rango (1-5)
-    y duplica combinaciones de (user_id, song_id).
+    y duplicados de combinaciones (user_id, song_id).
     """
     seen_pairs = set()
     cleaned_ratings = []
     requeridos = ["user_id", "song_id", "rating"]
 
     for raw in raw_ratings:
-        if all(campo in raw for campo in requeridos):
+
+        if all(campo in raw and pd.notna(raw[campo]) for campo in requeridos):
+
             if 1 <= raw["rating"] <= 5:
+
                 pair = (raw["user_id"], raw["song_id"])
+
                 if pair not in seen_pairs:
                     cleaned_ratings.append(raw)
                     seen_pairs.add(pair)
@@ -43,12 +46,34 @@ def get_song_average_ratings(ratings: list) -> pd.DataFrame:
     }
 
     df_promedios = pd.DataFrame(
-        list(promedios.items()), columns=["song_id", "average_rating"]
+        list(promedios.items()),
+        columns=["song_id", "average_rating"]
     )
 
     return df_promedios
 
 
 if __name__ == "__main__":
-    clean_raw_ratings("data/raw_ratings.csv", "data/resultado_validos.csv")
-    get_song_average_ratings("data/raw_ratings.csv", "data/resultado_promedios.csv")
+
+    # Leer el CSV una sola vez
+    df = pd.read_csv("data/raw_ratings.csv")
+
+    # Convertir DataFrame a lista de diccionarios
+    raw_ratings = df.to_dict(orient="records")
+
+    # Limpiar registros
+    cleaned_ratings = clean_raw_ratings(raw_ratings)
+
+    # Calcular promedios sobre los datos ya limpios
+    rating_run = get_song_average_ratings(cleaned_ratings)
+
+    # Guardar resultados
+    pd.DataFrame(cleaned_ratings).to_csv(
+        "data/resultado_validos.csv",
+        index=False
+    )
+
+    rating_run.to_csv(
+        "data/resultado_promedios.csv",
+        index=False
+    )
