@@ -49,8 +49,8 @@ def test_rating():
 
     assert len(cleaned) == 3
 
-"""
-    # Guardar el DataFrame filtrado
-    cleaned.to_csv("data/cleaned.csv", index=False)
+    cleaned_df = pd.DataFrame(cleaned)
+
+    cleaned_df.to_csv("data/cleaned.csv", index=False)
     average.to_csv("data/average.csv", index=False)
-    """
+

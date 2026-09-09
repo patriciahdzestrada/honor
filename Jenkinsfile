@@ -30,6 +30,12 @@ pipeline {
             }
         }
 
+        stage('Check Artifacts') {
+            steps {
+                bat 'dir data'
+            }
+        }
+
         stage('Build Docker Image') {
             steps {
                 bat '"C:\\Users\\mauri\\AppData\\Local\\Programs\\DockerDesktop\\resources\\bin\\docker.exe" build -t %DOCKER_IMAGE% .'
